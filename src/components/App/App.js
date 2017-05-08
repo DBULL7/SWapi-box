@@ -20,6 +20,32 @@ class App extends Component {
         })
   }
 
+
+  findPeople() {
+    fetch(`http://swapi.co/api/people/`)
+      .then((response) => response.json())
+        .then(json => {
+          console.log(json.results);
+        })
+  }
+
+  findPlanets() {
+    fetch(`http://swapi.co/api/planets/`)
+      .then((response) => response.json())
+        .then(json => {
+          console.log(json.results);
+        })
+  }
+
+  findVehicles() {
+    fetch(`http://swapi.co/api/vehicles/`)
+      .then((response) => response.json())
+        .then(json => {
+          console.log(json.results);
+        })
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -28,9 +54,9 @@ class App extends Component {
           <Favorites />
         </section>
         <section className='controls'>
-          <button>people</button>
-          <button>planets</button>
-          <button>vehicles</button>
+          <button onClick={() => {this.findPeople()}}>people</button>
+          <button onClick={() => {this.findPlanets()}}>planets</button>
+          <button onClick={() => {this.findVehicles()}}>vehicles</button>
         </section>
         <section className='sidebar'>
           <Sidebar opening={this.state}/>
