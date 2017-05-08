@@ -9,7 +9,6 @@ class App extends Component {
     super()
     this.state = {
       openingCrawl: {},
-      people: [],
     }
   }
 
@@ -19,18 +18,23 @@ class App extends Component {
       .then((response) => response.json())
         .then(json => {
           const { opening_crawl, title, release_date } = json;
-          this.setState({ openingCrawl: { opening_crawl, title, release_date } });
-        })
+          this.setState({
+            openingCrawl: { opening_crawl, title, release_date }
+          });
+        });
   }
 
 
   findInfo(e) {
-    const description = e.currentTarget.textContent
+    const description = e.currentTarget.textContent;
     fetch(`http://swapi.co/api/${description}/`)
       .then((response) => response.json())
         .then(json => {
-          console.log(json.results);
-        })
+          this.setState({
+            [description]: json.results
+          });
+          console.log(this.state);
+        });
   }
 
 
