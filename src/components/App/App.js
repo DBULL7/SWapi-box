@@ -8,17 +8,25 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-
+      openingCrawl: ''
     }
   }
 
   componentDidMount() {
-    fetch('http://swapi.co/api/films/1', {method: 'get'} ).then(response => {
-      let test = response.json()
-      console.log(test)
-    }).catch(error => {
-      console.log(error)
+    fetch('http://swapi.co/api/films/1', {method: 'get'} )
+    .then((response) => response.json())
+    .then(data => {
+      this.setState({openingCrawl: data.opening_crawl});
     })
+
+      // let test = response.json()
+      // let test2 = (test)
+      // console.log(test2)
+      // console.log(test2);
+
+    // .catch(error => {
+    //   console.log(error)
+    // })
   }
 
   render() {
@@ -34,7 +42,7 @@ class App extends Component {
           <button>vehicles</button>
         </section>
         <section className='sidebar'>
-          <Sidebar />
+          <Sidebar openingCrawl={this.state.openingCrawl} />
         </section>
         <section className='main'>
           <CardContainer />

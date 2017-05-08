@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Sidebar = (props) => {
+const Sidebar = ({openingCrawl}) => {
+  let test = openingCrawl || 'ok'
   return (
     <div>
-      <nav>Hey</nav>
+      <nav>{test}</nav>
     </div>
   )
 }
