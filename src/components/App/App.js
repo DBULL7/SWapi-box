@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Favorites from '../Favorites/Favorites'
-import Button from '../Button/Button';
+import Favorites from '../Favorites/Favorites';
+import CardContainer from '../CardContainer/CardContainer';
+import Sidebar from '../Sidebar/Sidebar';
 import './App.css';
 
 class App extends Component {
@@ -11,8 +12,17 @@ class App extends Component {
           <h1>SWAPI-Box</h1>
           <Favorites />
         </section>
-
-        <Button name={'People'}/>
+        <section className='controls'>
+          <button>people</button>
+          <button>planets</button>
+          <button>vehicles</button>
+        </section>
+        <section className='sidebar'>
+          <Sidebar />
+        </section>
+        <section className='main'>
+          <CardContainer />
+        </section>
       </div>
     );
   }
