@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = ({openingCrawl}) => {
+  let test = openingCrawl || 'ok'
   return (
     <div>
-      I am the sidebar
+      <nav>{test}</nav>
     </div>
   )
 }
