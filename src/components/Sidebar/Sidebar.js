@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div>
-      I am the sidebar
+      <nav>Hey</nav>
     </div>
   )
 }
