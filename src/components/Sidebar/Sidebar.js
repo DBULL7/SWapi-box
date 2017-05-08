@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Sidebar = ({openingCrawl}) => {
-  let test = openingCrawl || 'ok'
+const Sidebar = ( { opening } ) => {
+  console.log(opening);
   return (
     <div>
-      <nav>{test}</nav>
+      <nav>
+        <h1>{opening.title}</h1>
+        <h2>{opening.date}</h2>
+        <p>{opening.crawl}</p>
+      </nav>
+
     </div>
   )
 }
