@@ -57,7 +57,12 @@ class App extends Component {
     let test = this.state.favorites.filter(favorite => {
       console.log(favorite)
       console.log(data);
-      return (favorite.name !== data.name)
+      if (favorite.name === data.name) {
+        console.log('match');
+        return 
+      } else {
+        return favorite
+      }
     })
     console.log(test);
     return test
@@ -67,7 +72,7 @@ class App extends Component {
     if (this.state.favorites.length > 0) {
       console.log('fired');
       let test = this.unfavoriteCard(data)
-      this.setState({favorites: test})
+      this.setState({favorites: this.state.favorites.concat(test)})
     } else {
       this.setState({favorites: this.state.favorites.concat(data)})
     }
