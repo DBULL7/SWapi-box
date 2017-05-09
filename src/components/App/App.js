@@ -9,6 +9,7 @@ class App extends Component {
     super()
     this.state = {
       openingCrawl: {},
+      cardData: []
     }
   }
 
@@ -31,7 +32,7 @@ class App extends Component {
       .then((response) => response.json())
         .then(json => {
           this.setState({
-            [description]: json.results
+            cardData: json.results
           });
           console.log(this.state);
         });
@@ -55,7 +56,9 @@ class App extends Component {
           <Sidebar {...this.state.openingCrawl}/>
         </section>
         <section className='main'>
-          <CardContainer />
+          <CardContainer
+            cardData={this.state.cardData}
+          />
         </section>
       </div>
     );
