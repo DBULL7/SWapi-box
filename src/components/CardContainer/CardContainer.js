@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import Card from '../Card/Card';
 
 const CardContainer = ( { cardData } ) => {
   if (cardData) {
-
     const cards = cardData.map((card, index) => {
       return (
-        
-        <section key={index}>
-          <h3>{card.name}</h3>
-          <p>{card.homeworld}</p>
-          <p>{card.species}</p>
-        </section>
+        <Card info={card} key={index}/>
       )
     })
     return (
@@ -20,7 +15,7 @@ const CardContainer = ( { cardData } ) => {
       </div>
     )
   }
-  }
+}
 
 
 CardContainer.propTypes = {
