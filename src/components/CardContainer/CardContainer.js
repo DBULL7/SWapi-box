@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 
 const CardContainer = ( { cardData } ) => {
   if (cardData) {
-    const cards = cardData.map(card => {
+
+    const cards = cardData.map((card, index) => {
       return (
-        <p>{card.name}</p>
+        
+        <section key={index}>
+          <h3>{card.name}</h3>
+          <p>{card.homeworld}</p>
+          <p>{card.species}</p>
+        </section>
       )
     })
     return (
