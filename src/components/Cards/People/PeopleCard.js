@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class PeopleCard extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class PeopleCard extends Component {
     if (info.climate) {
       this.setState({homeworld: info.name, homeworldPopulation: info.population})
     } else {
-      this.setState({species: info.name})
+      this.setState({species: info.name, language: info.language})
     }
 
   }
@@ -41,6 +41,7 @@ class PeopleCard extends Component {
         <p>Homeworld : {this.state.homeworld}</p>
         <p>Species : {this.state.species}</p>
         <p>Population : {this.state.homeworldPopulation}</p>
+        <p>Language : {this.state.language}</p>
       </div>
     )
   }
