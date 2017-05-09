@@ -11,13 +11,13 @@ class VehicleCard extends Component {
   handleClick() {
     this.setState({
       favorited: !this.state.favorited
-    })
-    console.log(this.state.favorited);
+    });
   }
 
     render() {
       return (
-        <div className='vehicle' onClick={() => this.handleClick() }>
+        <div className='vehicle'>
+          <button onClick={() => this.handleClick() }> &hearts; </button>
           <p>{this.props.info.name}</p>
           <p>Model : {this.props.info.model}</p>
           <p>Class : {this.props.info.vehicle_class}</p>
