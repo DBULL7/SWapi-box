@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import PeopleCard from '../Cards/People/PeopleCard';
 import PlanetCard from '../Cards/Planets/PlanetCard';
+import VehicleCard from '../Cards/Vehicles/VehicleCard';
 
 const CardContainer = ( { cardData } ) => {
   if (cardData) {
@@ -13,6 +14,10 @@ const CardContainer = ( { cardData } ) => {
       } else if (card.climate) {
         return (
           <PlanetCard info={card} key={index}/>
+        )
+      } else {
+        return (
+          <VehicleCard info={card} key={index}/>
         )
       }
     })
