@@ -37,20 +37,16 @@ class App extends Component {
           this.setState({
             cardData: json.results
           });
-          console.log(this.state);
         });
   }
 
   handleButtonClass(e) {
     let button = e.currentTarget.textContent
-    console.log(button)
     if (button === 'people') {
       this.setState({people: 'active', planets: 'inactive', vehicles: 'inactive'})
     } else if (button === 'planets') {
-      console.log('its a planet')
       this.setState({people: 'inactive', planets: 'active', vehicles: 'inactive'})
     } else {
-      console.log('fuck this');
       this.setState({people: 'inactive', planets: 'inactive', vehicles: 'active'})
     }
   }

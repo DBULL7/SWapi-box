@@ -1,10 +1,12 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import './PlanetCard.css'
 
 class PlanetCard extends Component {
   constructor() {
     super()
     this.state = {
-      residents: []
+      residents: [],
+      favorited: false
     }
   }
 
@@ -19,20 +21,27 @@ class PlanetCard extends Component {
       .then(response => response.json())
         .then(resident => {
           this.setState({residents: this.state.residents.concat(resident.name)});
-        })
+        });
+    });
+  }
 
-    })
+  handleClick() {
+    this.setState({
+      favorited: !this.state.favorited
+    });
   }
 
   render() {
     return (
-      <article>
+      <div className='planets'>
+        <button className={this.state.favorited === true ? 'favorited' : ''}
+                onClick={() => this.handleClick() }> &hearts; </button>
         <h3>{this.props.info.name}</h3>
         <p>terrain: {this.props.info.terrain}</p>
         <p>population: {this.props.info.population}</p>
         <p>climate: {this.props.info.climate}</p>
         <p>{this.state.residents}</p>
-      </article>
+      </div>
     )
   }
 }
