@@ -13,6 +13,7 @@ class VehicleCard extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
+    this.props.handleClick(this.props.info.name);
   }
 
     render() {

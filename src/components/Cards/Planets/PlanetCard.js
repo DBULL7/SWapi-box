@@ -29,6 +29,7 @@ class PlanetCard extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
+    this.props.handleClick();
   }
 
   render() {

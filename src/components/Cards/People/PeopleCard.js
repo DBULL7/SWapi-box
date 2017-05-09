@@ -33,6 +33,7 @@ class PeopleCard extends Component {
 
   handleClick() {
     this.setState({favorited: !this.state.favorited});
+    this.props.handleClick();
   }
 
   render() {

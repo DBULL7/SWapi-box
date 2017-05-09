@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       openingCrawl: {},
       cardData: [],
+      favorites: [],
       people: 'inactive',
       planets: 'inactive',
       vehicles: 'inactive'
@@ -41,7 +42,7 @@ class App extends Component {
   }
 
   handleButtonClass(e) {
-    let button = e.currentTarget.textContent
+    let button = e.currentTarget.textContent;
     if (button === 'people') {
       this.setState({people: 'active', planets: 'inactive', vehicles: 'inactive'})
     } else if (button === 'planets') {
@@ -49,6 +50,10 @@ class App extends Component {
     } else {
       this.setState({people: 'inactive', planets: 'inactive', vehicles: 'active'})
     }
+  }
+
+  handleFavorites(data) {
+    console.log(data);
   }
 
   render() {
@@ -69,6 +74,7 @@ class App extends Component {
         <section className='main'>
           <CardContainer
             cardData={this.state.cardData}
+            handleClick={this.handleFavorites.bind(this)}
           />
         </section>
       </div>
