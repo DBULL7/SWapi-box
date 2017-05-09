@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PeopleCard.css';
 
 class PeopleCard extends Component {
   constructor() {
@@ -31,12 +32,22 @@ class PeopleCard extends Component {
   }
 
   handleClick() {
-    this.setState({favorited: !this.state.favorited})
+    this.setState({favorited: !this.state.favorited});
+    let allData = {
+      name: this.props.info.name,
+      homeworld: this.state.homeworld,
+      species: this.state.species,
+      population: this.state.homeworldPopulation,
+      language: this.state.language
+    }
+    this.props.handleClick(allData);
   }
 
   render() {
     return (
-      <div onClick={() => {this.handleClick()}}>
+      <div className='people'>
+        <button className={this.state.favorited === true ? 'favorited' : ''}
+                onClick={() => this.handleClick() }> &hearts; </button>
         <h3>{this.props.info.name}</h3>
         <p>Homeworld : {this.state.homeworld}</p>
         <p>Species : {this.state.species}</p>
@@ -47,11 +58,4 @@ class PeopleCard extends Component {
   }
 }
 
-export default PeopleCard
-
-
-// fetch(`${card.homeworld}`)
-//  .then(response => response.json())
-//    .then(json => {
-//        console.log(json.name)
-//    })
+export default PeopleCard;

@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       openingCrawl: {},
       cardData: [],
+      favorites: [],
       people: 'inactive',
       planets: 'inactive',
       vehicles: 'inactive'
@@ -37,22 +38,22 @@ class App extends Component {
           this.setState({
             cardData: json.results
           });
-          console.log(this.state);
         });
   }
 
   handleButtonClass(e) {
-    let button = e.currentTarget.textContent
-    console.log(button)
+    let button = e.currentTarget.textContent;
     if (button === 'people') {
       this.setState({people: 'active', planets: 'inactive', vehicles: 'inactive'})
     } else if (button === 'planets') {
-      console.log('its a planet')
       this.setState({people: 'inactive', planets: 'active', vehicles: 'inactive'})
     } else {
-      console.log('fuck this');
       this.setState({people: 'inactive', planets: 'inactive', vehicles: 'active'})
     }
+  }
+
+  handleFavorites(data) {
+    this.setState({favorites: this.state.favorites.concat(data)})
   }
 
   render() {
@@ -73,6 +74,7 @@ class App extends Component {
         <section className='main'>
           <CardContainer
             cardData={this.state.cardData}
+            handleClick={this.handleFavorites.bind(this)}
           />
         </section>
       </div>
