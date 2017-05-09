@@ -9,7 +9,10 @@ class App extends Component {
     super()
     this.state = {
       openingCrawl: {},
-      cardData: []
+      cardData: [],
+      people: 'inactive',
+      planets: 'inactive',
+      vehicles: 'inactive'
     }
   }
 
@@ -38,7 +41,19 @@ class App extends Component {
         });
   }
 
-
+  handleButtonClass(e) {
+    let button = e.currentTarget.textContent
+    console.log(button)
+    if (button === 'people') {
+      this.setState({people: 'active', planets: 'inactive', vehicles: 'inactive'})
+    } else if (button === 'planets') {
+      console.log('its a planet')
+      this.setState({people: 'inactive', planets: 'active', vehicles: 'inactive'})
+    } else {
+      console.log('fuck this');
+      this.setState({people: 'inactive', planets: 'inactive', vehicles: 'active'})
+    }
+  }
 
   render() {
     return (
@@ -48,9 +63,9 @@ class App extends Component {
           <Favorites />
         </section>
         <section className='controls'>
-          <button onClick={(e) => {this.findInfo(e)}}>people</button>
-          <button onClick={(e) => {this.findInfo(e)}}>planets</button>
-          <button onClick={(e) => {this.findInfo(e)}}>vehicles</button>
+          <button className={this.state.people} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>people</button>
+          <button className={this.state.planets} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>planets</button>
+          <button className={this.state.vehicles} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>vehicles</button>
         </section>
         <section className='sidebar'>
           <Sidebar {...this.state.openingCrawl}/>
