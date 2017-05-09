@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Card extends Component {
+class PeopleCard extends Component {
   constructor() {
     super()
     this.state = {
@@ -23,7 +23,6 @@ class Card extends Component {
 
   setCardState(info) {
     if (info.climate) {
-      console.log(info)
       this.setState({homeworld: info.name, homeworldPopulation: info.population})
     } else {
       this.setState({species: info.name})
@@ -47,7 +46,7 @@ class Card extends Component {
   }
 }
 
-export default Card
+export default PeopleCard
 
 
 // fetch(`${card.homeworld}`)

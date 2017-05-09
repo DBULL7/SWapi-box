@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import Card from '../Card/Card';
+import PeopleCard from '../Cards/People/PeopleCard';
 
 const CardContainer = ( { cardData } ) => {
   if (cardData) {
     const cards = cardData.map((card, index) => {
       return (
-        <Card info={card} key={index}/>
+        <PeopleCard info={card} key={index}/>
       )
     })
     return (
