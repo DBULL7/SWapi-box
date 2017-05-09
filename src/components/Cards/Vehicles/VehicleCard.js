@@ -13,7 +13,13 @@ class VehicleCard extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
-    this.props.handleClick(this.props.info.name);
+    let allData = {
+      name: this.props.info.name,
+      model: this.props.info.model,
+      class: this.props.info.vehicle_class,
+      passengers: this.props.info.passengers
+    }
+    this.props.handleClick(allData);
   }
 
     render() {

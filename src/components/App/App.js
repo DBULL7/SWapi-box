@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   handleFavorites(data) {
-    console.log(data);
+    this.setState({favorites: this.state.favorites.concat(data)})
   }
 
   render() {

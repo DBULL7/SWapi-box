@@ -29,7 +29,14 @@ class PlanetCard extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
-    this.props.handleClick();
+    let allData = {
+      name: this.props.info.name,
+      terrain: this.props.info.terrain,
+      population: this.props.info.population,
+      climate: this.props.info.climate,
+      residents: this.state.residents
+    }
+    this.props.handleClick(allData);
   }
 
   render() {

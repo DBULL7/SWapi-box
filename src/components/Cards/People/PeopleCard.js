@@ -33,7 +33,14 @@ class PeopleCard extends Component {
 
   handleClick() {
     this.setState({favorited: !this.state.favorited});
-    this.props.handleClick();
+    let allData = {
+      name: this.props.info.name,
+      homeworld: this.state.homeworld,
+      species: this.state.species,
+      population: this.state.homeworldPopulation,
+      language: this.state.language
+    }
+    this.props.handleClick(allData);
   }
 
   render() {
