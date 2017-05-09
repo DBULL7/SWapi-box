@@ -52,29 +52,20 @@ class App extends Component {
     }
   }
 
-  unfavoriteCard(data) {
-
-    let test = this.state.favorites.filter(favorite => {
-      console.log(favorite)
-      console.log(data);
-      if (favorite.name === data.name) {
-        console.log('match');
-        return 
-      } else {
-        return favorite
-      }
+  unfavoriteCard(index) {
+    const favorites = this.state.favorites.filter((val => val.name !== index.name));
+    this.setState({
+      favorites: favorites
     })
-    console.log(test);
-    return test
   }
 
-  handleFavorites(data) {
-    if (this.state.favorites.length > 0) {
-      console.log('fired');
-      let test = this.unfavoriteCard(data)
-      this.setState({favorites: this.state.favorites.concat(test)})
+  handleFavorites(index, status) {
+    if (status) {
+      this.unfavoriteCard(index);
     } else {
-      this.setState({favorites: this.state.favorites.concat(data)})
+      this.setState({
+        favorites: this.state.favorites.concat(index)
+      })
     }
   }
 
