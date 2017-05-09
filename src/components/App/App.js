@@ -52,8 +52,25 @@ class App extends Component {
     }
   }
 
+  unfavoriteCard(data) {
+
+    let test = this.state.favorites.filter(favorite => {
+      console.log(favorite)
+      console.log(data);
+      return (favorite.name !== data.name)
+    })
+    console.log(test);
+    return test
+  }
+
   handleFavorites(data) {
-    this.setState({favorites: this.state.favorites.concat(data)})
+    if (this.state.favorites.length > 0) {
+      console.log('fired');
+      let test = this.unfavoriteCard(data)
+      this.setState({favorites: test})
+    } else {
+      this.setState({favorites: this.state.favorites.concat(data)})
+    }
   }
 
   render() {
