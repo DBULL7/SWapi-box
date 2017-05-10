@@ -112,13 +112,13 @@ class App extends Component {
           <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
         </section>
         <section className='controls'>
-          <button className={this.state.peopleButton}
+          <button name='people' className={this.state.peopleButton}
                   onClick={(e) => {this.findInfo(e);
                                   this.handleButtonClass(e)}}>people</button>
-          <button className={this.state.planetsButton}
+          <button name='planets' className={this.state.planetsButton}
                   onClick={(e) => {this.findInfo(e);
                                    this.handleButtonClass(e)}}>planets</button>
-          <button className={this.state.vehiclesButton}
+          <button name='vehicles' className={this.state.vehiclesButton}
                   onClick={(e) => {this.findInfo(e);
                                   this.handleButtonClass(e)}}>vehicles</button>
         </section>
