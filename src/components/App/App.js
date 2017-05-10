@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Favorites from '../Favorites/Favorites';
 import CardContainer from '../CardContainer/CardContainer';
 import Sidebar from '../Sidebar/Sidebar';
+import FavoritedCards from '../Cards/FavoritedCards/FavoritedCards'
 import './App.css';
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
       favorites: [],
       people: 'inactive',
       planets: 'inactive',
-      vehicles: 'inactive'
+      vehicles: 'inactive',
+      showFavorites: false
     }
   }
 
@@ -69,12 +71,31 @@ class App extends Component {
     }
   }
 
+  showFavorites() {
+    if (this.state.showFavorites) {
+      return (
+        <FavoritedCards favorites={this.state.favorites}/>
+      )
+    } else {
+      return (
+        <CardContainer
+          cardData={this.state.cardData}
+          handleClick={this.handleFavorites.bind(this)}
+        />
+      )
+    }
+  }
+
+  showFavoritesHandleClick() {
+    this.setState({showFavorites: !this.state.showFavorites})
+  }
+
   render() {
     return (
       <div className="App">
         <section className='header'>
           <h1>SWAPI-Box</h1>
-          <Favorites />
+          <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
         </section>
         <section className='controls'>
           <button className={this.state.people} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>people</button>
@@ -85,10 +106,7 @@ class App extends Component {
           <Sidebar {...this.state.openingCrawl}/>
         </section>
         <section className='main'>
-          <CardContainer
-            cardData={this.state.cardData}
-            handleClick={this.handleFavorites.bind(this)}
-          />
+          {this.showFavorites()}
         </section>
       </div>
     );
