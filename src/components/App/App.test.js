@@ -136,7 +136,19 @@ describe('App Test', () => {
   })
 
   it('has an initial state of cardData = empty array', () => {
+    // const wrapper = mount(<App />)
+    // let findButtons = wrapper.find('button')
+    // console.log(findButtons);
+    // expect(findButtons.length).toEqual(3)
+  })
 
+  it('should have four buttons', () => {
+    const wrapper = mount(<App />)
+    let findButtons = wrapper.find('button')
+    // let test = wrapper.find('button["name"="people"]')
+    // console.log(test);
+    // console.log(findButtons);
+    expect(findButtons.length).toEqual(4)
   })
 
   it('shouldnt show favorites on start', () => {
