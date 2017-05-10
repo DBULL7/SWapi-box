@@ -10,7 +10,9 @@ class PeopleCard extends Component {
   }
 
   componentWillMount() {
-    this.makeAPICalls()
+    if (this.props) {
+      this.makeAPICalls()
+    }
   }
 
   makeAPICalls() {
