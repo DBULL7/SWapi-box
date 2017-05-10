@@ -12,9 +12,12 @@ class App extends Component {
       openingCrawl: {},
       cardData: [],
       favorites: [],
-      people: 'inactive',
-      planets: 'inactive',
-      vehicles: 'inactive',
+      people: [],
+      planets: [],
+      vehicles: [],
+      peopleButton: 'inactive',
+      planetsButton: 'inactive',
+      vehiclesButton: 'inactive',
       showFavorites: false
     }
   }
@@ -31,26 +34,33 @@ class App extends Component {
         });
   }
 
+  componentWillMount() {
+    let array = ['people', 'planets', 'vehicles']
+    array.forEach(call => {
+      fetch(`http://swapi.co/api/${call}/`)
+        .then((response) => response.json())
+          .then(json => {
+            this.setState({
+              [call]: json.results
+            });
+          });
+    })
+  }
+
 
   findInfo(e) {
     const description = e.currentTarget.textContent;
-    fetch(`http://swapi.co/api/${description}/`)
-      .then((response) => response.json())
-        .then(json => {
-          this.setState({
-            cardData: json.results
-          });
-        });
+    this.setState({cardData: this.state[description] })
   }
 
   handleButtonClass(e) {
     let button = e.currentTarget.textContent;
     if (button === 'people') {
-      this.setState({people: 'active', planets: 'inactive', vehicles: 'inactive'})
+      this.setState({peopleButton: 'active', planetsButton: 'inactive', vehiclesButton: 'inactive'})
     } else if (button === 'planets') {
-      this.setState({people: 'inactive', planets: 'active', vehicles: 'inactive'})
+      this.setState({peopleButton: 'inactive', planetsButton: 'active', vehiclesButton: 'inactive'})
     } else {
-      this.setState({people: 'inactive', planets: 'inactive', vehicles: 'active'})
+      this.setState({peopleButton: 'inactive', planetsButton: 'inactive', vehiclesButton: 'active'})
     }
   }
 
@@ -98,9 +108,9 @@ class App extends Component {
           <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
         </section>
         <section className='controls'>
-          <button className={this.state.people} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>people</button>
-          <button className={this.state.planets} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>planets</button>
-          <button className={this.state.vehicles} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>vehicles</button>
+          <button className={this.state.peopleButton} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>people</button>
+          <button className={this.state.planetsButton} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>planets</button>
+          <button className={this.state.vehiclesButton} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>vehicles</button>
         </section>
         <section className='sidebar'>
           <Sidebar {...this.state.openingCrawl}/>
