@@ -13,7 +13,8 @@ class App extends Component {
       favorites: [],
       people: 'inactive',
       planets: 'inactive',
-      vehicles: 'inactive'
+      vehicles: 'inactive',
+      showFavorites: false
     }
   }
 
@@ -69,12 +70,20 @@ class App extends Component {
     }
   }
 
+  showFavorites() {
+
+  }
+
+  showFavoritesHandleClick() {
+    this.setState({showFavorites: !this.state.showFavorites})
+  }
+
   render() {
     return (
       <div className="App">
         <section className='header'>
           <h1>SWAPI-Box</h1>
-          <Favorites />
+          <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
         </section>
         <section className='controls'>
           <button className={this.state.people} onClick={(e) => {this.findInfo(e); this.handleButtonClass(e)}}>people</button>
