@@ -4,7 +4,7 @@ import PeopleCard from '../Cards/People/PeopleCard';
 import PlanetCard from '../Cards/Planets/PlanetCard';
 import VehicleCard from '../Cards/Vehicles/VehicleCard';
 
-const CardContainer = ( { cardData, handleClick } ) => {
+const CardContainer = ( { cardData, handleClick, checkFavorites } ) => {
   if (cardData) {
     const cards = cardData.map((card, index) => {
       if (card.birth_year) {
