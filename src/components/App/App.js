@@ -74,9 +74,13 @@ class App extends Component {
   handleFavorites(index, status) {
     if (status) {
       this.unfavoriteCard(index);
-    } else {
+    } else if (!this.state.favorites.find(val => val.name === index.name)) {
       this.setState({
         favorites: this.state.favorites.concat(index)
+      })
+    } else {
+      this.setState({
+        favorites: this.state.favorites
       })
     }
   }
