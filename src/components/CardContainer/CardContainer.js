@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import PeopleCard from '../Cards/People/PeopleCard';
 import PlanetCard from '../Cards/Planets/PlanetCard';
 import VehicleCard from '../Cards/Vehicles/VehicleCard';

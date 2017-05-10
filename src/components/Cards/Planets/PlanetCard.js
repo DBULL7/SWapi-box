@@ -16,11 +16,12 @@ class PlanetCard extends Component {
 
   apiCall(url) {
     url.forEach(resident => {
-
       fetch(resident)
       .then(response => response.json())
         .then(resident => {
-          this.setState({residents: this.state.residents.concat(resident.name)});
+          this.setState({
+            residents: this.state.residents.concat(resident.name)
+          });
         });
     });
   }
@@ -29,6 +30,7 @@ class PlanetCard extends Component {
     this.setState({
       favorited: !this.state.favorited
     });
+
     let allData = {
       name: this.props.info.name,
       terrain: this.props.info.terrain,
@@ -36,6 +38,7 @@ class PlanetCard extends Component {
       climate: this.props.info.climate,
       residents: this.state.residents
     }
+
     this.props.handleClick(allData);
   }
 

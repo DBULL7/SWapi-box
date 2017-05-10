@@ -84,7 +84,7 @@ class App extends Component {
   showFavorites() {
     if (this.state.showFavorites) {
       return (
-        <FavoritedCards favorites={this.state.favorites}/>
+        <FavoritedCards favorites={this.state.favorites} unfavoriteCard={this.unfavoriteCard.bind(this)}/>
       )
     } else {
       return (

@@ -10,28 +10,33 @@ class PeopleCard extends Component {
   }
 
   componentWillMount() {
-    this.makeAPICalls()
+    if (this.props) {
+      this.makeAPICalls()
+    }
   }
 
   makeAPICalls() {
-    const test = fetch(this.props.info.homeworld)
+    const p1 = fetch(this.props.info.homeworld)
       .then(response => response.json())
         .then(info => {
-          console.log(info)
           return info
-        })
+        });
 
-    const test2 = fetch(this.props.info.species)
+    const p2 = fetch(this.props.info.species)
       .then(response => response.json())
         .then(info => {
-          console.log(info);
           return info
-        })
-    Promise.all([test, test2]).then(values => {
-        this.setState({homeworld: values[0].name, homeworldPopulation: values[0].population, species: values[1].name, language: values[1].language})
-    })
+        });
+
+    return Promise.all([p1, p2]).then(values => {
+        this.setState({
+          homeworld: values[0].name,
+          homeworldPopulation: values[0].population,
+          species: values[1].name,
+          language: values[1].language
+        });
+    });
   }
-
 
   handleClick() {
     this.setState({
