@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Favorites from '../Favorites/Favorites';
 import CardContainer from '../CardContainer/CardContainer';
 import Sidebar from '../Sidebar/Sidebar';
+import FavoritedCards from '../Cards/FavoritedCards/FavoritedCards'
 import './App.css';
 
 class App extends Component {
@@ -71,7 +72,18 @@ class App extends Component {
   }
 
   showFavorites() {
-
+    if (this.state.showFavorites) {
+      return (
+        <FavoritedCards favorites={this.state.favorites}/>
+      )
+    } else {
+      return (
+        <CardContainer
+          cardData={this.state.cardData}
+          handleClick={this.handleFavorites.bind(this)}
+        />
+      )
+    }
   }
 
   showFavoritesHandleClick() {
@@ -94,10 +106,7 @@ class App extends Component {
           <Sidebar {...this.state.openingCrawl}/>
         </section>
         <section className='main'>
-          <CardContainer
-            cardData={this.state.cardData}
-            handleClick={this.handleFavorites.bind(this)}
-          />
+          {this.showFavorites()}
         </section>
       </div>
     );
