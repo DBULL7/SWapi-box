@@ -14,11 +14,13 @@ class PlanetCard extends Component {
     this.apiCall(this.props.info.residents)
   }
 
-  apiCall(url) {
-    url.forEach(resident => {
+  apiCall(urls) {
+    console.log(urls);
+    urls.forEach(resident => {
       fetch(resident)
       .then(response => response.json())
         .then(resident => {
+          console.log(resident);
           this.setState({
             residents: this.state.residents.concat(resident.name)
           });
