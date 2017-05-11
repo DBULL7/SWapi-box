@@ -4,17 +4,23 @@
   flex-wrap: wrap;
   background-color: #17212b;
   width: 90%;
+  height: 800px;
+  overflow: scroll;
+  border-radius: 20px;
 }
 
 .card {
   color: #FFF;
   background-color: #AAAAAA;
   margin: 10px 10px;
-
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
 }
 
 .card-title {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 2px dotted #FFF;
 }

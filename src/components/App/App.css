@@ -8,6 +8,10 @@
   background-color: red;
 }
 
+.inactive {
+  background-color: #4a5460;
+}
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -31,10 +35,11 @@ h1 {
 .controls {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 button[name="people"] {
-  background-color: #4a5460;
+  /*background-color: #4a5460;*/
   color: #FFF;
   width: 100px;
   border: none;
@@ -42,7 +47,7 @@ button[name="people"] {
 }
 
 button[name="planets"] {
-  background-color: #4a5460;
+
   color: #FFF;
   border: none;
   width: 100px;
@@ -52,7 +57,7 @@ button[name="planets"] {
 }
 
 button[name="vehicles"] {
-  background-color: #4a5460;
+  /*background-color: #4a5460;*/
   color: #FFF;
   width: 100px;
   border: none;
