@@ -1,0 +1,10 @@
+.view-favorites {
+  border: 1px solid #000;
+}
+
+.number-box {
+  height: 25px;
+  width: 40px;
+  background-color: #4A5460;
+  color: #FFF;
+}

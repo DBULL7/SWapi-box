@@ -51,7 +51,7 @@ class PlanetCard extends Component {
         <p>terrain: {this.props.info.terrain}</p>
         <p>population: {this.props.info.population}</p>
         <p>climate: {this.props.info.climate}</p>
-        <p>{this.state.residents}</p>
+        <p>{this.state.residents.join(', ')}</p>
       </div>
     )
   }

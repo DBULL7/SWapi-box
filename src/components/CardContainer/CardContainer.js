@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PeopleCard from '../Cards/People/PeopleCard';
 import PlanetCard from '../Cards/Planets/PlanetCard';
 import VehicleCard from '../Cards/Vehicles/VehicleCard';
+import './CardContainer.css'
 
 const CardContainer = ( { cardData, handleClick, checkFavorites } ) => {
   if (cardData) {
@@ -22,7 +23,7 @@ const CardContainer = ( { cardData, handleClick, checkFavorites } ) => {
       }
     })
     return (
-      <div>
+      <div className="card-container">
         {cards}
       </div>
     )

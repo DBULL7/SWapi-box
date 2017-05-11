@@ -1,7 +1,25 @@
 .App {
+  display: flex;
   text-align: center;
+  width: 100%;
 }
 
 .active {
   background-color: red;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.view-favorites {
+  float: right;
+}
+
+.right-side {
+  background-color: #E2EDFF;
+  width: 70%;
+  overflow-x: ;
 }

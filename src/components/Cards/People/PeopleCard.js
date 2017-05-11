@@ -30,6 +30,7 @@ class PeopleCard extends Component {
 
     return Promise.all([p1, p2]).then(values => {
         this.setState({
+          name: this.props.info.name,
           homeworld: values[0].name,
           homeworldPopulation: values[0].population,
           species: values[1].name,
@@ -59,7 +60,7 @@ class PeopleCard extends Component {
       <div className='people'>
         <button className={this.state.favorited === true ? 'favorited' : ''}
                 onClick={() => this.handleClick() }> &hearts; </button>
-        <h3>{this.props.info.name}</h3>
+        <h3>{this.state.name}</h3>
         <p>Homeworld : {this.state.homeworld}</p>
         <p>Species : {this.state.species}</p>
         <p>Population : {this.state.homeworldPopulation}</p>
