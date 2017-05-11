@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import './Favorites.css'
 
 const Favorites = ({showHideFavorites, favorites}) => {
   return (
-    <button onClick={() => showHideFavorites()} className='view-favorites'>
+    <div onClick={() => showHideFavorites()} className='view-favorites'>
 
-      <p>View Favorites : {favorites}</p>
-    </button>
+      <p>View Favorites : <span className="number-box">{favorites}</span></p>
+    </div>
   )
 }
 

@@ -107,6 +107,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <section className='header'>
           <h1>SWAPI-Box</h1>
           <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
@@ -122,11 +123,34 @@ class App extends Component {
                   onClick={(e) => {this.findInfo(e);
                                   this.handleButtonClass(e)}}>vehicles</button>
         </section>
+
         <section className='sidebar'>
           <Sidebar {...this.state.openingCrawl}/>
         </section>
-        <section className='main'>
-          {this.showFavorites()}
+        <section className="right-side">
+          <section className='header'>
+            <article>
+              <h1>SWAPI-Box</h1>
+            </article>
+            <article>
+              <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
+            </article>
+          </section>
+          <section className='controls'>
+            <button name='people' className={this.state.peopleButton}
+                    onClick={(e) => {this.findInfo(e);
+                                    this.handleButtonClass(e)}}>people</button>
+            <button name='planets' className={this.state.planetsButton}
+                    onClick={(e) => {this.findInfo(e);
+                                     this.handleButtonClass(e)}}>planets</button>
+            <button name='vehicles' className={this.state.vehiclesButton}
+                    onClick={(e) => {this.findInfo(e);
+                                    this.handleButtonClass(e)}}>vehicles</button>
+          </section>
+
+          <section className='main'>
+            {this.showFavorites()}
+          </section>
         </section>
       </div>
     );
