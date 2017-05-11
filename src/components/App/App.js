@@ -108,21 +108,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <section className='header'>
-          <h1>SWAPI-Box</h1>
-          <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
-        </section>
-        <section className='controls'>
-          <button className={`${this.state.peopleButton} people`}
-                  onClick={(e) => {this.findInfo(e);
-                                  this.handleButtonClass(e)}}>people</button>
-          <button className={`${this.state.planetsButton} planets`}
-                  onClick={(e) => {this.findInfo(e);
-                                   this.handleButtonClass(e)}}>planets</button>
-          <button className={`${this.state.vehiclesButton} vehicles`}
-                  onClick={(e) => {this.findInfo(e);
-                                  this.handleButtonClass(e)}}>vehicles</button>
-        </section>
+        
 
         <section className='sidebar'>
           <Sidebar {...this.state.openingCrawl}/>
