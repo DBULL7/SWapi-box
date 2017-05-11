@@ -101,15 +101,17 @@ class App extends Component {
   }
 
   showFavoritesHandleClick() {
-    this.setState({showFavorites: !this.state.showFavorites})
+    this.setState({
+      showFavorites: !this.state.showFavorites,
+      peopleButton: 'inactive',
+      planetsButton: 'inactive',
+      vehiclesButton: 'inactive'
+    })
   }
 
   render() {
     return (
       <div className="App">
-
-        
-
         <section className='sidebar'>
           <Sidebar {...this.state.openingCrawl}/>
         </section>
