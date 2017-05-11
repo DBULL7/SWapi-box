@@ -5,7 +5,12 @@ class PeopleCard extends Component {
   constructor() {
     super()
     this.state = {
-      favorited: false
+      favorited: false,
+      name: '',
+      homeworld: '',
+      homeworldPopulation: '',
+      species: '',
+      language: ''
     }
   }
 
@@ -60,7 +65,7 @@ class PeopleCard extends Component {
       <div className='people card'>
         <div className='card-title'>
           <h3>{this.state.name}</h3>
-          <button className={this.state.favorited === true ? 'favorited' : ''}
+          <button className={this.state.favorited === true ? 'favorited' : 'unfavorited'}
                   onClick={() => this.handleClick() }> &hearts; </button>
         </div>
         <p>Homeworld : {this.state.homeworld}</p>

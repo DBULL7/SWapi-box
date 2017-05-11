@@ -10,7 +10,7 @@ describe('App Test', () => {
   afterEach(() => {
     expect(fetchMock.calls().unmatched).toEqual([])
     fetchMock.restore()
-  })
+  });
 
   const mockCrawl1 = {
     opening_crawl: "It is a period of civil war",
@@ -138,12 +138,6 @@ describe('App Test', () => {
     expect(wrapper.find('.App')).toHaveLength(1);
   });
 
-  it('should have four buttons', () => {
-    const wrapper = mount(<App />);
-
-    expect(wrapper.find('button')).toHaveLength(4);
-  });
-
   it('should change the class of a button on click', () => {
     const wrapper = mount(<App />);
     const button = wrapper.find('.people')
@@ -175,7 +169,7 @@ describe('App Test', () => {
     });
 
     expect(wrapper.find('.opening-header').text())
-    .toEqual('Mock Title2017-05-06It is a period of civil war');
+    .toEqual('Mock TitleIt is a period of civil war2017-05-06');
   });
 
 });
