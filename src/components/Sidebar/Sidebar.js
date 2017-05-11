@@ -5,7 +5,7 @@ import './Sidebar.css'
 const Sidebar = ( { title, release_date, opening_crawl } ) => {
   return (
     <div>
-      <nav>
+      <nav className='opening-header'>
         <h1>{title}</h1>
         <p>{opening_crawl}</p>
         <h2>{release_date}</h2>
