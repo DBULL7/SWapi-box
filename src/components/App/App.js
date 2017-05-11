@@ -116,7 +116,7 @@ class App extends Component {
               <h1>SWAPI-Box</h1>
             </article>
             <article>
-              <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>              
+              <Favorites favorites={this.state.favorites.length} showHideFavorites={this.showFavoritesHandleClick.bind(this)}/>
             </article>
           </section>
           <section className='controls'>

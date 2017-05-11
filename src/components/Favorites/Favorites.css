@@ -1,10 +1,15 @@
 .view-favorites {
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  height: 25px;
+  font-size: 14px;
   border: 1px solid #000;
+
 }
 
 .number-box {
-  height: 25px;
-  width: 40px;
+  padding: 5px;
   background-color: #4A5460;
   color: #FFF;
 }
