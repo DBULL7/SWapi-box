@@ -24,10 +24,12 @@ class VehicleCard extends Component {
 
     render() {
       return (
-        <div className='vehicle'>
-          <button className={this.state.favorited === true ? 'favorited' : ''}
-                  onClick={() => this.handleClick() }> &hearts; </button>
-          <p>{this.props.info.name}</p>
+        <div className='vehicle card'>
+          <div className="card-title">
+            <p>{this.props.info.name}</p>
+            <button className={this.state.favorited === true ? 'favorited' : ''}
+              onClick={() => this.handleClick() }> &hearts; </button>            
+          </div>
           <p>Model : {this.props.info.model}</p>
           <p>Class : {this.props.info.vehicle_class}</p>
           <p>Passengers : {this.props.info.passengers}</p>

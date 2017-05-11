@@ -20,6 +20,12 @@
 
 .right-side {
   background-color: #E2EDFF;
-  width: 70%;
+  width: 100%;
   overflow-x: ;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

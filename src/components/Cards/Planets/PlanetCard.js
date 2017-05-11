@@ -44,10 +44,12 @@ class PlanetCard extends Component {
 
   render() {
     return (
-      <div className='planets'>
-        <button className={this.state.favorited === true ? 'favorited' : ''}
-                onClick={() => this.handleClick() }> &hearts; </button>
-        <h3>{this.props.info.name}</h3>
+      <div className='planets card'>
+        <div className='card-title'>
+          <h3>{this.props.info.name}</h3>
+          <button className={this.state.favorited === true ? 'favorited' : ''}
+                  onClick={() => this.handleClick() }> &hearts; </button>
+        </div>
         <p>terrain: {this.props.info.terrain}</p>
         <p>population: {this.props.info.population}</p>
         <p>climate: {this.props.info.climate}</p>

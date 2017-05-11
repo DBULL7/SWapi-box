@@ -6,10 +6,12 @@ const FavoritedCards = ({favorites, unfavoriteCard}) => {
       if (card.species) {
         return (
           <div key={index}
-               className='people'>
-            <button className='favorited'
-                    onClick={() => unfavoriteCard(card)}> &hearts; </button>
-            <h3>{card.name}</h3>
+               className='people card'>
+            <div className='card-title'>
+             <h3>{card.name}</h3>
+              <button className='favorited'
+                      onClick={() => unfavoriteCard(card)}> &hearts; </button>
+            </div>
             <p>Homeworld : {card.homeworld}</p>
             <p>Species : {card.species}</p>
             <p>Population : {card.homeworldPopulation}</p>
@@ -18,11 +20,14 @@ const FavoritedCards = ({favorites, unfavoriteCard}) => {
         )
       } else if (card.model) {
         return (
-          <div key={index}
-               className='vehicle'>
-            <button className='favorited'
-                    onClick={() => unfavoriteCard(card) }> &hearts; </button>
-            <p>{card.name}</p>
+          <div key={index} className='vehicle card'>
+               <div className='card-title'>
+                 <p>{card.name}</p>
+                 <button className='favorited'
+                         onClick={() => unfavoriteCard(card) }>
+                     &hearts;
+                  </button>
+                </div>
             <p>Model : {card.model}</p>
             <p>Class : {card.vehicle_class}</p>
             <p>Passengers : {card.passengers}</p>
@@ -31,10 +36,13 @@ const FavoritedCards = ({favorites, unfavoriteCard}) => {
       } else {
         return (
           <div key={index}
-               className='planets'>
-            <button className='favorited'
-                    onClick={() => unfavoriteCard(card) }> &hearts; </button>
-            <h3>{card.name}</h3>
+               className='planets card'>
+            <div className='card-title'>
+              <h3>{card.name}</h3>
+              <button className='favorited'
+                onClick={() => unfavoriteCard(card) }> &hearts; </button>
+
+            </div>
             <p>terrain: {card.terrain}</p>
             <p>population: {card.population}</p>
             <p>climate: {card.climate}</p>

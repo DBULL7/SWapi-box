@@ -57,10 +57,12 @@ class PeopleCard extends Component {
 
   render() {
     return (
-      <div className='people'>
-        <button className={this.state.favorited === true ? 'favorited' : ''}
-                onClick={() => this.handleClick() }> &hearts; </button>
-        <h3>{this.state.name}</h3>
+      <div className='people card'>
+        <div className='card-title'>
+          <h3>{this.state.name}</h3>
+          <button className={this.state.favorited === true ? 'favorited' : ''}
+                  onClick={() => this.handleClick() }> &hearts; </button>
+        </div>
         <p>Homeworld : {this.state.homeworld}</p>
         <p>Species : {this.state.species}</p>
         <p>Population : {this.state.homeworldPopulation}</p>
