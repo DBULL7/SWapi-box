@@ -20,6 +20,23 @@ class PeopleCard extends Component {
     }
   }
 
+  // const fetchGet = (url, callback, errorFunction) => {
+  //   fetch(url)
+  //     .then(response => response.json())
+  //       .then(callback);
+  //       .catch(errorFunction)
+  // }
+  //
+  // const peopleDataScrub = (homeworld, species, person) => {
+  //   {
+  //     name: person.info.name,
+  //     homeworld: homeworld.name,
+  //     homeworldPopulation: homeworld.population,
+  //     species: values[1].name,
+  //     language: values[1].language
+  //   }
+  // }
+
   makeAPICalls() {
     const p1 = fetch(this.props.info.homeworld)
       .then(response => response.json())
