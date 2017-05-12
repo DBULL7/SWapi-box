@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     let index = Math.floor(Math.random() * 7) + 1
-    fetch(`http://swapi.co/api/films/${index}`)
+    fetch(`https://swapi.co/api/films/${index}`)
       .then((response) => response.json())
         .then(json => {
           const { opening_crawl, title, release_date } = json;
@@ -40,7 +40,7 @@ class App extends Component {
   componentWillMount() {
     let array = ['people', 'planets', 'vehicles']
     array.forEach(call => {
-      fetch(`http://swapi.co/api/${call}/`)
+      fetch(`https://swapi.co/api/${call}/`)
         .then((response) => response.json())
           .then(json => {
             this.setState({
