@@ -58,6 +58,7 @@ describe('App Test', () => {
             "vehicle_class": "starfighter",
         }
   ]}
+  
   const filmHelper = () => {
     for(let i = 1; i <= 7; i++) {
       fetchMock.get(`http://swapi.co/api/films/${i}`, {
