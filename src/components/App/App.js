@@ -31,6 +31,8 @@ class App extends Component {
           this.setState({
             openingCrawl: { opening_crawl, title, release_date }
           });
+        }).catch(() => {
+          console.log('ERROR');
         });
   }
 
