@@ -52,6 +52,7 @@ describe('App Test', () => {
         }
   ]}
 
+
   fetchMock.get('http://swapi.co/api/films/1', {
     status: 200,
     body: {
@@ -94,6 +95,7 @@ describe('App Test', () => {
       "opening_crawl": mockCrawl1.opening_crawl,
       "title": mockCrawl1.title,
       "release_date": mockCrawl1.release_date
+
     }
   })
 
