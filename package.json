@@ -2,14 +2,12 @@
   "name": "swapi-box",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dbull7.github.io/SWapi-box",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
-    "fetch-mock": "^5.10.0",
     "gh-pages": "^1.0.0",
     "prop-types": "^15.5.8",
     "react-dom": "^15.5.4",
