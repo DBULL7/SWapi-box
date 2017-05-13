@@ -38,13 +38,22 @@ class PeopleCard extends Component {
   // }
 
   makeAPICalls() {
-    const p1 = fetch(this.props.info.homeworld)
+    let http = this.props.info.homeworld
+    let url = http.substring(4)
+    let https = 'https'
+    let httpsURL = `${https+url}`
+    const p1 = fetch(httpsURL)
       .then(response => response.json())
         .then(info => {
           return info
         });
 
-    const p2 = fetch(this.props.info.species)
+    let speciesHTTP = this.props.info.species[0]
+    // console.log(speciesHTTP);
+    let speciesURL = speciesHTTP.substring(4)
+    let speciesHTTPS = `${https+speciesURL}`
+    // console.log(speciesHTTPS);
+    const p2 = fetch(speciesHTTPS)
       .then(response => response.json())
         .then(info => {
           return info

@@ -16,7 +16,10 @@ class PlanetCard extends Component {
 
   apiCall(urls) {
     urls.forEach(resident => {
-      fetch(resident)
+      let url = resident.substring(4)
+      let https = 'https'
+      let httpsURL = `${https+url}`
+      fetch(httpsURL)
       .then(response => response.json())
         .then(resident => {
           this.setState({

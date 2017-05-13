@@ -24,7 +24,7 @@ class App extends Component {
 
   componentDidMount() {
     let index = Math.floor(Math.random() * 7) + 1
-    fetch(`https://swapi.co/api/films/${index}`)
+    fetch(`https://swapi.co/api/films/${index}/`)
       .then((response) => response.json())
         .then(json => {
           const { opening_crawl, title, release_date } = json;
@@ -45,7 +45,10 @@ class App extends Component {
           .then(json => {
             this.setState({
               [call]: json.results
-            });
+            })
+            }).catch((error) => {
+              console.log(error)
+              console.log('Error in component will mount');
           });
     })
   }
