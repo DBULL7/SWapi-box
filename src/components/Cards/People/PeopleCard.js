@@ -49,10 +49,8 @@ class PeopleCard extends Component {
         });
 
     let speciesHTTP = this.props.info.species[0]
-    // console.log(speciesHTTP);
     let speciesURL = speciesHTTP.substring(4)
     let speciesHTTPS = `${https+speciesURL}`
-    // console.log(speciesHTTPS);
     const p2 = fetch(speciesHTTPS)
       .then(response => response.json())
         .then(info => {
